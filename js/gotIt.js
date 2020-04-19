@@ -37,7 +37,7 @@ function createMessageNode() {
 
   // nofollow, push message data to firebase!
   // this will create an object with timestamp as a key
-  // it will appear inside a folder 'messagesBottle' --> must be same name as line 51 in post.js
+  // it will appear inside a folder 'messagesBottle' --> must be same name as line 51 in sketch.js
   let result = firebase.database().ref('messagesBottle/' + timeStamp).set(messageData);
 
   console.log('sent message:');
@@ -55,7 +55,7 @@ function receiveMessage() {
   // then display it!!!
   // let's first shuffle the array so it doesn't automatically return them
   // in order they were posted
-  shuffleArray(fbDataArray); // function defined in post.js
+  shuffleArray(fbDataArray); // this function defined in sketch.js
 
   // now iterate thru the shuffled array and check for one not received
   for (let i = 0; i < fbDataArray.length; i++) {
@@ -69,7 +69,7 @@ function receiveMessage() {
         messageReceived: true
       });
 
-      break;
+      break; // break out of loop after we found an entry to post
     }
   }
 }
