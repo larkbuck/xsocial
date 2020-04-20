@@ -24,7 +24,6 @@ function setup() {
     // storageBucket: "",
     // messagingSenderId: "",
     // appId: "",
-    // measurementId: ""
   };
 
   firebase.initializeApp(config);
@@ -42,8 +41,7 @@ function setup() {
   // They will provide it during Firebase setup)
   // or (if your project already created)
   // 1. Go to your the Settings icon Project settings in the Firebase web console.
-  // 2. In the Your apps card, select the nickname of the app for which you need
-  // a config object.
+  // 2. In the Your apps card, select the nickname of the app for which you need a config object.
   // 3. Select Config from the Firebase SDK snippet pane.
   // 4. Copy the config object snippet, then add it to your app's HTML.
 }
