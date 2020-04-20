@@ -4,6 +4,8 @@ html, body {
 }
 
 body {
+  max-width: 90%;
+  margin: 50px auto;
   font-family: monospace;
   background-color: #F9F1EF;
   color: #1B033B;

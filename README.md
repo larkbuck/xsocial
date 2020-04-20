@@ -3,6 +3,7 @@
 
 For Art 101 @ SJSU
 
+[tut demos here](https://larkvcr.com/xsocial/)
 
 
 ⊱ ────── {.⋅ ♫ ⋅.} ───── ⊰
