@@ -2,7 +2,9 @@
 
 // this js file handles all calls to firebase
 
+// fires upon receiving FB data
 function gotData(data) {
+
   // need to retrieve firebase data with val() method
   // this returns an object of all data
   fbData = data.val();
@@ -35,10 +37,10 @@ function createMessageNode() {
   }
 
 
-  // nofollow, push message data to firebase!
+  // now, push message data to firebase!
   // this will create an object with timestamp as a key
   // it will appear inside a folder 'messagesBottle' --> must be same name as line 51 in sketch.js
-  let result = firebase.database().ref('messagesBottle/' + timeStamp).set(messageData);
+  firebase.database().ref('messagesBottle/' + timeStamp).set(messageData);
 
   console.log('sent message:');
   console.log(messageData);
@@ -46,3 +48,11 @@ function createMessageNode() {
   // Lastly, let's reset the input field on the webpage
   messageInput.value = '';
 }
+
+
+// // Note:
+// // this would be the most concise way to create a new node
+// // the node folder name, id, and object are all passed in as parameters
+// function createNodeWParameters(_nodeFolder, _nodeId, _nodeObject){
+//   firebase.database().ref(_nodeFolder + '/' + _nodeId).set(_nodeObject);
+// }

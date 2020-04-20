@@ -13,6 +13,7 @@ function gotData(data) {
 
     // this creates an array of the data (easier to loop thru)
     fbDataArray = Object.values(fbData);
+    console.log(`currently there are ${fbDataArray.length} messages`)
   }
 }
 
@@ -38,7 +39,7 @@ function createMessageNode() {
   // nofollow, push message data to firebase!
   // this will create an object with timestamp as a key
   // it will appear inside a folder 'messagesBottle' --> must be same name as line 51 in sketch.js
-  let result = firebase.database().ref('messagesBottle/' + timeStamp).set(messageData);
+  firebase.database().ref('messagesBottle/' + timeStamp).set(messageData);
 
   console.log('sent message:');
   console.log(messageData);
@@ -69,7 +70,47 @@ function receiveMessage() {
         messageReceived: true
       });
 
+      // or! you can delete it altogether... (if you don't want to keep old ones on file)
+      // firebase.database().ref('messagesBottle/' + fbDataArray[i].timeStamp).remove();
+
       break; // break out of loop after we found an entry to post
     }
   }
 }
+
+
+
+// // ------------------> More generalized functions: <-----------------------
+
+// // this would be the most concise way to create a new node
+// // the node folder name, id, and object are all passed in as parameters
+// function createNodeWParameters(_nodeFolder, _nodeId, _nodeObject){
+//   firebase.database().ref(_nodeFolder + '/' + _nodeId).set(_nodeObject);
+// }
+
+// // the update method will update an existing node
+// function updateNode(_nodeFolder, _nodeID) {
+//   // in our message demo, _nodeFolder is 'messagesBottle' _nodeID is the timestamp
+//
+//   // update the node with same timeStamp
+//   // this will update existing key:value pair(s) OR add new ones to your object
+//   firebase.database().ref(_nodeFolder + '/' + _nodeID).update({
+//     // key: value,
+//     // key2: value2,
+//   });
+// }
+//
+// // This removes an entire node from your folder
+// function deleteNode(_nodeFolder, _nodeID) {
+//   // in our message demo, _nodeFolder is 'messagesBottle' _nodeID is the timestamp
+//
+//   firebase.database().ref(_nodeFolder + '/' + _nodeID).remove();
+// }
+//
+// // This would delete the entire folder
+// function deleteFolder(_nodeFolder) {
+//   // in our message demo, _nodeFolder is 'messagesBottle' _nodeID is the timestamp
+//
+//   firebase.database().ref(_nodeFolder).remove()
+// }
+//

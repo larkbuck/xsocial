@@ -1,10 +1,10 @@
 "use strict";
 // template for firebase
 
-let nodeData;
-let fbData; // firebase data
-let fbDataArray;
-let database;
+let nodeData; // object we will push to firebase
+let fbData; // data we pull from firebase
+let fbDataArray; // firebase data values converted to an array
+let database; // reference to our firebase database
 
 function setup() {
 
@@ -15,15 +15,8 @@ function setup() {
   // Copy and paste your config here (replace object commented out)
   // ---> directions on finding config below
 
+
   let config = {
-    apiKey: "AIzaSyC-4LvZ39_rdJp8LpCwdD2LT4Xpi7RoVKE",
-    authDomain: "xsocial-bafa7.firebaseapp.com",
-    databaseURL: "https://xsocial-bafa7.firebaseio.com",
-    projectId: "xsocial-bafa7",
-    storageBucket: "xsocial-bafa7.appspot.com",
-    messagingSenderId: "885435903629",
-    appId: "1:885435903629:web:cdaaa02cee4c2fc9acbcc4",
-    measurementId: "G-YX8LWSB5MB"
     // apiKey: "",
     // authDomain: "",
     // databaseURL: "",
@@ -38,13 +31,15 @@ function setup() {
 
   database = firebase.database();
 
-  // this references folder 'folderName' --> whatever you name it must be same as line 44 in sketch.js
-  let ref = database.ref('folderName');
+  // this references the folder you want your data to appear in
+  let ref = database.ref('folderName'); // change folderName ****
+  // **** whatever you name it must be same as line 44 in gotIt.js
+
   ref.on('value', gotData, errData);
 
 
   // ---> To find your config object:
-  // (Find it in your Firebase SDK in Firebase setup)
+  // They will provide it during Firebase setup)
   // or (if your project already created)
   // 1. Go to your the Settings icon Project settings in the Firebase web console.
   // 2. In the Your apps card, select the nickname of the app for which you need
