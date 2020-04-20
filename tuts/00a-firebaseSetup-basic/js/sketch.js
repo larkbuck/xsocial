@@ -5,6 +5,7 @@ let nodeData; // object we will push to firebase
 let fbData; // data we pull from firebase
 let fbDataArray; // firebase data values converted to an array
 let database; // reference to our firebase database
+let folderName; // name of folder you create in db
 
 function setup() {
 
@@ -31,8 +32,8 @@ function setup() {
   database = firebase.database();
 
   // this references the folder you want your data to appear in
-  let ref = database.ref('folderName'); // change folderName ****
-  // **** whatever you name it must be same as line 44 in gotIt.js
+  let ref = database.ref(folderName);
+  // **** folderName must be consistant with calls to // DEBUG:
 
   ref.on('value', gotData, errData);
 
