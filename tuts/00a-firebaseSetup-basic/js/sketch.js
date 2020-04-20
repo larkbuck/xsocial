@@ -16,7 +16,6 @@ function setup() {
   // Copy and paste your config here (replace object commented out)
   // ---> directions on finding config below
 
-
   let config = {
     // apiKey: "",
     // authDomain: "",
@@ -33,18 +32,18 @@ function setup() {
 
   // this references the folder you want your data to appear in
   let ref = database.ref(folderName);
-  // **** folderName must be consistant with calls to // DEBUG:
+  // **** folderName must be consistant across all calls to this folder
 
   ref.on('value', gotData, errData);
 
 
   // ---> To find your config object:
-  // They will provide it during Firebase setup)
+  // They will provide it during Firebase setup
   // or (if your project already created)
-  // 1. Go to your the Settings icon Project settings in the Firebase web console.
-  // 2. In the Your apps card, select the nickname of the app for which you need a config object.
-  // 3. Select Config from the Firebase SDK snippet pane.
-  // 4. Copy the config object snippet, then add it to your app's HTML.
+  // 1. Go to main console page
+  // 2. Click on project
+  // 3. On project home page click on name of app under project name (in large font)
+  // 4. Click the gear icon --> it's in there!
 }
 
 function draw() {

@@ -2,6 +2,13 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+body {
+  font-family: monospace;
+  background-color: #F9F1EF;
+  color: #1B033B;
+}
+
 canvas {
   display: block;
 }
