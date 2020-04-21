@@ -21,9 +21,7 @@ Videos published in our class YouTube...
 
 ### **0.1: Set up Firebase project**
 
-* NOTE: When you set up your realtime database, make note of the URL that previews your database on the Firebase website, I weirdly couldn't navigate back to mine when making the tutorial
-    * WHHHY? Perhaps bc I didn't enable analytics when I set it up?
-    * Or just needs time to register? Stumped
+* NOTE: When you set up your realtime database, make note of the URL for the database on the Firebase website. I couldn't navigate back to it through the sidebar menu for 3 hrs 
 
 ***Important:***
 * Firebase databases are NOT SECURE when anyone is allowed to read and write to them in the rules. For secure dynamic databases you need backend hosting (not possible on GitHub pages).
