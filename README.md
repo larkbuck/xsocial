@@ -25,6 +25,12 @@ Videos published in our class YouTube...
     * WHHHY? Perhaps bc I didn't enable analytics when I set it up?
     * Or just needs time to register? Stumped
 
+***Important:***
+* Firebase databases are NOT SECURE when anyone is allowed to read and write to them in the rules. For secure dynamic databases you need backend hosting (not possible on GitHub pages).
+* So basically do not store private information.
+* Also someone might 'accidentally' delete or hijack your database. Make backups! You can make auto backups with a Blaze plan (not free but I only pay 4-6 cents a month for two big projects).
+* ---> Video tut on how we will approach Firebase security COMING SOON
+
 <br>
 
 ### **0.2: Initialize Firebase in p5 Project pt 1**
@@ -154,3 +160,8 @@ Here is code to copy along with video tutorial. **Students! Please watch video a
     function deleteNode(_nodeFolder, _nodeID) {
     firebase.database().ref(_nodeFolder + '/' + _nodeID).remove();
     }
+
+<br>
+
+#### Tip:
+*Delete your config API info and make this a duplicate of this repository a 'template repository'. You can do this in repository settings. That way all this will be set up for next time =)*
