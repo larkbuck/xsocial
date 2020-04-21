@@ -10,14 +10,16 @@ For Art 101 @ SJSU
 
 ## *BASIC FIREBASE SETUP*
 
-### **0: Set up new GitHub repo**
+Videos published in our class YouTube...
+
+### **0.0: Set up new GitHub repo**
 
 * I created a quick video in case you forgot some steps...
 * Download prepped blank p5 project [here](https://larkvcr.com/xsocial/tuts/blankP5Setup.zip)
 
 <br>
 
-### **1: Set up Firebase project**
+### **0.1: Set up Firebase project**
 
 * NOTE: When you set up your realtime database, make note of the URL that previews your database on the Firebase website, I weirdly couldn't navigate back to mine when making the tutorial
     * WHHHY? Perhaps bc I didn't enable analytics when I set it up?
@@ -25,9 +27,11 @@ For Art 101 @ SJSU
 
 <br>
 
-### **2: Initialize Firebase in p5 repo**
+### **0.2: Initialize Firebase in p5 Project pt 1**
 
 Here is code to copy along with video tutorial. **Students! Please watch video and follow along.** There are a few things I left out so you need the video too =). Also, If you don't know what code is doing you will get lost further down the road.
+
+[Link to Firebase docs for web app](https://firebase.google.com/docs/database/web/start)
 
 
 
@@ -109,7 +113,11 @@ Here is code to copy along with video tutorial. **Students! Please watch video a
 
 <br>
 
-#### Also to paste into gotIt.js file = general functions to write data to Firebase
+### **0.3: Initialize Firebase in p5 Project pt 2**
+
+
+#### Write data to Firebase by creating a new node!!!
+
 
 
 
@@ -124,6 +132,10 @@ Here is code to copy along with video tutorial. **Students! Please watch video a
     // (to test you can just paste it into the web console)
 
     }
+
+<br>
+
+#### Also to paste into gotIt.js file = general functions to write data to Firebase
 
 
     // the update method will update an existing node
