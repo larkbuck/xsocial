@@ -21,7 +21,7 @@ Videos published in our class YouTube...
 
 ### **0.1: Set up Firebase project**
 
-* NOTE: When you set up your realtime database, make note of the URL for the database on the Firebase website. I couldn't navigate back to it through the sidebar menu for 3 hrs 
+* NOTE: When you set up your realtime database, make note of the URL for the database on the Firebase website. I couldn't navigate back to it through the sidebar menu for 3 hrs
 
 ***Important:***
 * Firebase databases are NOT SECURE when anyone is allowed to read and write to them in the rules. For secure dynamic databases you need backend hosting (not possible on GitHub pages).
