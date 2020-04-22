@@ -6,10 +6,28 @@ let fbData; // data we pull from firebase
 let fbDataArray; // firebase data values converted to an array
 let database; // reference to our firebase database
 let folderName = "demo-messages"; // name of folder you create in db
+let messageInput;
+let sendMessageBtn;
+let receiveMessageBtn;
+let receivedMessage;
+let receiveDiv, sendDiv;
 
 function setup() {
 
   noCanvas();
+
+  // access DOM elements
+  // messageInput = select("#messageInput");
+  messageInput = document.querySelector("#messageInput");
+  sendMessageBtn = document.querySelector("#sendMessageBtn");
+  receiveMessageBtn = document.querySelector("#receiveMessageBtn");
+  receivedMessage = document.querySelector("#receivedMessage");
+  receiveDiv = document.querySelector("#receiveDiv");
+  sendDiv = document.querySelector("#sendDiv");
+
+
+  sendMessageBtn.addEventListener('click', sendMessage);
+  receiveMessageBtn.addEventListener('click', receiveMessage);
 
   // Initialize firebase
   // support for Firebase Realtime Database 4 web here: https://firebase.google.com/docs/database/web/start
@@ -56,4 +74,27 @@ function setup() {
 
 function draw() {
 
+}
+
+function sendMessage() {
+
+  if (messageInput.value) {
+    let timestamp = Date.now();
+
+    nodeData = {
+      messageText: messageInput.value,
+      timestamp: timestamp,
+    }
+
+    createNode(folderName, timestamp, nodeData);
+
+    console.log("sent message:");
+    console.log(nodeData);
+  } else {
+    alert("uh oh. type message first (ﾟ∇^d) ｸﾞｯ!!")
+  }
+}
+
+function receiveMessage(){
+  console.log("received");
 }

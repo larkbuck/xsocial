@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Firebase template simple</title>
+  <title>Message Send</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <!-- load firebase-app AND firebase-database, which handles the realtime database -->
@@ -17,8 +17,17 @@
 </head>
 
 <body>
-  <h3>blank javascript template for firebase</h3>
+  <h3>Send Message</h3>
 
+  <div class="" id="sendDiv">
+    <textarea id="messageInput" name="name" rows="8" cols="80" placeholder="type message here"></textarea>
+    <button id="sendMessageBtn" type="button" name="button">send message</button>
+  </div>
+
+  <div class="" id="receiveDiv">
+    <button id="receiveMessageBtn" type="button" name="button">receive message</button>
+    <p id="receivedMessage"></p>
+  </div>
 
   <!-- load yr javascript here @ end of body -->
   <!-- this way your code won't stumble over trying to find HTML elements that haven't

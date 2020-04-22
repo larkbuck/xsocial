@@ -131,7 +131,7 @@ Here is code to copy along with video tutorial. **Students! Please watch video a
     function createNode(_nodeFolder, _nodeId, _nodeObject) {
     firebase.database().ref(_nodeFolder + '/' + _nodeId).set(_nodeObject);
 
-    // call this function to create and seed the folder!
+    // call this function in the web console to create and seed the folder!
     // createNode(folderName, "seed", {text: "this is to seed folder"});
     // (to test you can just paste it into the web console)
 
@@ -162,4 +162,6 @@ Here is code to copy along with video tutorial. **Students! Please watch video a
 <br>
 
 #### Tip:
-*Delete your config API info and make this a duplicate of this repository a 'template repository'. You can do this in repository settings. That way all this will be set up for next time =)*
+*Create a template repository with just this code. Create a new repo and call it "firebase template." Click "make this a template repository." Copy these files into it (minus the .git file) -- be sure to delete your config API!!
+
+Now all this will be set up for next time. You can just create a new repository from this template. =)*
