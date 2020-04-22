@@ -67,16 +67,27 @@ function draw() {
 }
 
 function sendMessage() {
+  // first, assign timestamp for the message
+  // we will use this both for the message ID and include it in the message object itself
+  // *** this is a little redundant but helps when we update the message values
 
-  let timestamp = Date.now();
+  let timestamp = Date.now(); // milliseconds since midnight of January 1, 1970 (beginning of time ;)
 
+  // first, create object of messageData
   nodeData = {
-    messageText: messageInput.value,
+    messageText: messageInput.value, // value of text field
     timestamp: timestamp,
   }
 
+  // push to firebase!!!
   createNode(folderName, timestamp, nodeData);
 
   console.log("sent message:");
   console.log(nodeData);
+
+  // creating this paragraph to display message for demo purposes
+  createP(`Just sent this message to firebase: ${nodeData.messageText}`);
+
+  // zero out textfield
+  messageInput.value = '';
 }
