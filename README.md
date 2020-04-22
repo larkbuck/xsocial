@@ -16,12 +16,12 @@
   * Vids 0.0-0.3
 * [Message in a Bottle Project](#-message-in-a-bottle-project)
   * Vids 1.0 - 1.?
-  * [Shuffling arrays](#-shuffline-arrays)
+  * [Shuffling arrays](#shuffling-arrays)
 
 
 ### ⊱ ────── {.⋅ ♫ ⋅.} ───── ⊰
 
-## **Keyboard Shortcuts**
+## ▼△▼△▼ Atom Keyboard Shortcuts**
 
 [Atom Cheatsheet Here](https://www.shortcutfoo.com/app/dojos/atom-mac/cheatsheet)
 
@@ -76,7 +76,7 @@
 
 ### ⊱ ────── {.⋅ ♫ ⋅.} ───── ⊰
 
-# *BASIC FIREBASE SETUP*
+# ▼△▼△▼ Basic Firebase Setup
 
 [Videos 0.0 - 0.3](https://www.youtube.com/playlist?list=PLT6L9mOkCXcO1XM6Aj-qMYljSDgNutQGy)
 
@@ -240,7 +240,7 @@ Now all this will be set up for next time. You can just create a new repository 
 
 ### ⊱ ────── {.⋅ ♫ ⋅.} ───── ⊰
 
-# *Message in a Bottle Project*
+# ▼△▼△▼ Message in a Bottle Project
 
 Send and receive messages, the old way.
 
@@ -285,8 +285,9 @@ The object for each message is:
 
 ## Receiving data from Firebase
 
-* The basic idea is that you sort through the fbData object and fbDataArray from the function gotData()
+* The basic idea is that you sort through data in the function gotData(data), which is the callback from when we initialize firebase
   * We already wrote gotData() in our basic setup but here it is again =)
+  * Node we store the data in our variables fbData (object) and fbDataArray (fbData converted to an array)
 
 
         function gotData(data) {
@@ -306,6 +307,12 @@ The object for each message is:
             console.log('nothing in this folder yet');
           }
         }
+
+The essence of this is:
+
+      function gotData(data) {
+        fbData = data.val();
+      }
 
 <br>
 
