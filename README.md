@@ -242,16 +242,50 @@ Now all this will be set up for next time. You can just create a new repository 
 
 # *Message in a Bottle Project*
 
-Send and receive messages.
+Send and receive messages, the old way.
+
 
 * [Videos 1.0 - 1.?](https://www.youtube.com/playlist?list=PLT6L9mOkCXcO1XM6Aj-qMYljSDgNutQGy)
+
+* I will be building a "Message in A Bottle" project, you could also choose another form from the [History of Messaging](https://simpletexting.com/history-of-messaging/) (ie. smoke signals, carrier pigeons)
+
+
 
 
 <br>
 
-## Shuffling Arrays
+## Sending data to Firebase
 
-* basic idea is that you sort through the fbData object and fbDataArray from the function gotData()
+* we already wrote a function for this in our gotIt.js file!
+* we made it easy by passing the node folder name, id, and object as parameters
+
+
+
+    function createNode(_nodeFolder, _nodeId, _nodeObject) {
+      firebase.database().ref(_nodeFolder + '/' +
+      _nodeId).set(_nodeObject);
+    }
+
+
+But you don't really need that whole function. The basic method for this is:
+
+      firebase.database().ref(_nodeFolder + '/' + _nodeId).set(_nodeObject);
+
+In this project, we simply included the createNode() function in a callback for a "send message" button
+
+The object for each message is:
+
+      nodeData = {
+        messageText: messageInput.value,
+        timestamp: timestamp,
+        messageReceived: false,
+      }
+
+...we add the messageReceived value in the next section....
+
+## Receiving data from Firebase
+
+* The basic idea is that you sort through the fbData object and fbDataArray from the function gotData()
   * We already wrote gotData() in our basic setup but here it is again =)
 
 
