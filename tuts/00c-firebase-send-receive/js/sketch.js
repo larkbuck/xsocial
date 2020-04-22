@@ -80,6 +80,7 @@ function sendMessage() {
 
   if (messageInput.value) {
     let timestamp = Date.now();
+    console.log(timestamp.toString());
 
     nodeData = {
       messageText: messageInput.value,

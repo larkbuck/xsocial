@@ -1,16 +1,84 @@
 # Experimental Social Media Projects
 
 
-For Art 101 @ SJSU
-
-[tut demos here](https://larkvcr.com/xsocial/)
+#### *For Art 101 @ SJSU*
 
 
-⊱ ────── {.⋅ ♫ ⋅.} ───── ⊰
+#### LINKS:
+* [tut demos online here](https://larkvcr.com/xsocial/)
+* [youtube tuts here](https://www.youtube.com/playlist?list=PLT6L9mOkCXcO1XM6Aj-qMYljSDgNutQGy)
 
-## *BASIC FIREBASE SETUP*
 
-Videos published in our class YouTube...
+#### ON THIS PAGE:
+
+* [Atom Keyboard Shortcuts](#-atom-keyboard-shortcuts)
+* [Basic Firebase Setup](#-basic-firebase-setup)
+  * Vids 0.0-0.3
+* [Message in a Bottle Project](#-message-in-a-bottle-project)
+  * Vids 1.0 - 1.?
+  * [Shuffling arrays](#-shuffline-arrays)
+
+
+### ⊱ ────── {.⋅ ♫ ⋅.} ───── ⊰
+
+## **Keyboard Shortcuts**
+
+[Atom Cheatsheet Here](https://www.shortcutfoo.com/app/dojos/atom-mac/cheatsheet)
+
+* *this list is for apple keyboards. for windows, change cmd (command) to ctrl (control)*
+* *bold ones are highly recommended*
+
+#### Cursor / folding:
+
+* **multi-line cursor: hold down cmd and click in different places**
+
+* **ctrl m - jump to matching curly bracket (marker)**
+
+* **cmd k quickly followed by cmd # - fold the code to various levels**
+  * **Try cmd k cmd 1,  then cmd k cmd 2, etc**
+
+* **cmd alt [ or cmd alt ] = fold / unfold code block**
+  * **add shift to fold/unfold all**
+
+* ctrl g - jump to line # (good when looking up line number errors)
+
+* ctrl a - jump to beginning of line
+
+* ctrl e - jump to end of line
+
+
+#### Highlighting / operations:
+
+* **cmd d - with text highlighted, cmd d will highlight next (same) text selection**
+
+* **cmd shift D to duplicate line**
+
+* **cmd L = highlight entire line**
+
+* **cmd x will delete entire line**
+
+* **option shift arrow (left or right) will highlight next word to left or right**
+
+* cmd shift arrow (left or right) will highlight whole line to left or right
+
+* cmd ctrl arrow (up down) - moves line up/Down
+
+* option arrow (left or right) will jump cursor to next word
+
+
+#### Find and replace:
+
+* **cmd f - find/replace word in file**
+
+* **cmmd shift f - find/replace word in ALL files**
+
+<br>
+
+### ⊱ ────── {.⋅ ♫ ⋅.} ───── ⊰
+
+# *BASIC FIREBASE SETUP*
+
+[Videos 0.0 - 0.3](https://www.youtube.com/playlist?list=PLT6L9mOkCXcO1XM6Aj-qMYljSDgNutQGy)
 
 ### **0.0: Set up new GitHub repo**
 
@@ -165,3 +233,73 @@ Here is code to copy along with video tutorial. **Students! Please watch video a
 *Create a template repository with just this code. Create a new repo and call it "firebase template." Click "make this a template repository." Copy these files into it (minus the .git file) -- be sure to delete your config API!!
 
 Now all this will be set up for next time. You can just create a new repository from this template. =)*
+
+<br>
+<br>
+<br>
+
+### ⊱ ────── {.⋅ ♫ ⋅.} ───── ⊰
+
+# *Message in a Bottle Project*
+
+Send and receive messages.
+
+* [Videos 1.0 - 1.?](https://www.youtube.com/playlist?list=PLT6L9mOkCXcO1XM6Aj-qMYljSDgNutQGy)
+
+
+<br>
+
+## Shuffling Arrays
+
+* basic idea is that you sort through the fbData object and fbDataArray from the function gotData()
+  * We already wrote gotData() in our basic setup but here it is again =)
+
+
+        function gotData(data) {
+
+          // need to retrieve firebase data with val() method
+          // this returns an object of all data
+          fbData = data.val();
+
+          if (fbData) { // check to see if there is something in your database to start
+            console.log('received data:');
+            console.log(fbData);
+
+            // create an array of the post values (if you need to loop through it retaining order of entries)
+            fbDataArray = Object.values(fbData);
+
+          } else {
+            console.log('nothing in this folder yet');
+          }
+        }
+
+<br>
+
+## Shuffling Arrays
+
+It's not as easy as you might think....
+
+The Fisher-Yates algorithm is efficient and avoids having to create duplicate arrays. But it is a little confusing...
+* [Easy explanation here](https://medium.com/@qjawe/js-shuffle-cards-or-any-elements-with-the-fisher-yates-shuffle-algorithm-b70750c497d5)
+* [Javascript.info tutorial here](https://javascript.info/task/shuffle) (click solution and scroll down)
+
+
+
+    function shuffle(array) {
+
+      // iterate backwards through an array
+      for (let i = array.length - 1; i > 0; i--) {
+
+        // grab random index from 0 to i
+        let randomIndex = Math.floor(Math.random() * (i + 1));
+
+        // swap elements array[i] and array[j]
+        [array[i], array[randomIndex]] = [array[randomIndex], array[i]]; // using "destructuring assignment" syntax
+
+        // same can be written as:
+        // let arrayItem = array[i]; // array item in original position array[i]
+        // array[i] = array[randomIndex]; // overwrite array[i] with new item at random index
+        // array[randomIndex] = arrayItem; // now move array item from original position into random position
+
+      }
+    }
