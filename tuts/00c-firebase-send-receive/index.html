@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Message Send</title>
+  <title>Send + Receive</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <!-- load firebase-app AND firebase-database, which handles the realtime database -->
@@ -17,16 +17,17 @@
 </head>
 
 <body>
-  <h3>Send Message</h3>
+  <h3>Send + Receive</h3>
 
   <div class="" id="sendDiv">
     <textarea id="messageInput" name="name" rows="8" cols="80" placeholder="type message here"></textarea>
     <button id="sendMessageBtn" type="button" name="button">send message</button>
   </div>
 
-  <div class="" id="receiveDiv">
+  <div class="hidden" id="receiveDiv">
     <button id="receiveMessageBtn" type="button" name="button">receive message</button>
     <p id="receivedMessage"></p>
+    <button id="sendAgainBtn" class="hidden" type="button" name="button">send another message</button>
   </div>
 
   <!-- load yr javascript here @ end of body -->
