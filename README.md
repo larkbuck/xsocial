@@ -14,14 +14,14 @@
 * [Atom Keyboard Shortcuts](#-atom-keyboard-shortcuts)
 * [Basic Firebase Setup](#-basic-firebase-setup)
   * Vids 0.0-0.3
-* [Message in a Bottle Project](#-message-in-a-bottle-project)
+* [Message in a Bottle Project](#-message-in-a-bottle-project) (send / receive messages)
   * Vids 1.0 - 1.?
   * [Shuffling arrays](#shuffling-arrays)
 
 
 ### ⊱ ────── {.⋅ ♫ ⋅.} ───── ⊰
 
-## ▼△▼△▼ Atom Keyboard Shortcuts**
+## ▼△▼△▼ Atom Keyboard Shortcuts
 
 [Atom Cheatsheet Here](https://www.shortcutfoo.com/app/dojos/atom-mac/cheatsheet)
 
