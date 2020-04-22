@@ -16,6 +16,8 @@
   * Vids 0.0-0.3
 * [Message in a Bottle Project](#-message-in-a-bottle-project) (send / receive messages)
   * Vids 1.0 - 1.?
+  * [Sending Data](#sending-data-to-firebase)
+  * [Receiving Data](#receiving-data)
   * [Shuffling arrays](#shuffling-arrays)
 
 
@@ -283,7 +285,7 @@ The object for each message is:
 
 ...we add the messageReceived value in the next section....
 
-## Receiving data from Firebase
+## Receiving data
 
 * The basic idea is that you sort through data in the function gotData(data), which is the callback from when we initialize firebase
   * We already wrote gotData() in our basic setup but here it is again =)
