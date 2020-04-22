@@ -11,7 +11,7 @@ let sendMessageBtn;
 let receiveMessageBtn;
 let sendAgainBtn;
 let receivedMessage;
-let receiveDiv, sendDiv;
+let receiveDiv, sendDiv, loadingDiv;
 
 function setup() {
 
@@ -26,6 +26,7 @@ function setup() {
   sendAgainBtn = document.querySelector("#sendAgainBtn");
   receiveDiv = document.querySelector("#receiveDiv");
   sendDiv = document.querySelector("#sendDiv");
+  loadingDiv = document.querySelector("#loadingDiv");
 
 
   sendMessageBtn.addEventListener('click', sendMessage);

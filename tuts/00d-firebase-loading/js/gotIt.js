@@ -4,6 +4,10 @@
 // fires upon receiving FB data
 function gotData(data) {
 
+  loadingDiv.style.display = "none";
+  sendDiv.style.display = "block";
+
+
   // need to retrieve firebase data with val() method
   // this returns an object of all data
   fbData = data.val();

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Send + Receive</title>
+  <title>Send + Receive + Loading Screen</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <!-- load firebase-app AND firebase-database, which handles the realtime database -->
@@ -17,9 +17,13 @@
 </head>
 
 <body>
-  <h3>Send + Receive</h3>
+  <h3>Send + Receive + Loading Screen</h3>
 
-  <div class="" id="sendDiv">
+  <div class="" id="loadingDiv">
+    <p>loading...</p>
+  </div>
+
+  <div class="hidden" id="sendDiv">
     <textarea id="messageInput" name="name" rows="8" cols="80" placeholder="type message here"></textarea>
     <button id="sendMessageBtn" type="button" name="button">send message</button>
   </div>
