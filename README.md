@@ -234,7 +234,7 @@ Here is code to copy along with video tutorial. **Students! Please watch video a
 #### Tip:
 *Create a template repository with just this code. Create a new repo and call it "firebase template." Click "make this a template repository." Copy these files into it (minus the .git file) -- be sure to delete your config API!!
 
-Now all this will be set up for next time. You can just create a new repository from this template. =)*
+Now all this will be set up for next time. You can just create a new repository from this template. =)* [Link to download here](tuts/firebaseSetup-basic.zip)
 
 <br>
 <br>
