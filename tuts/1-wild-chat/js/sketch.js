@@ -80,7 +80,7 @@ function displayPastChats() {
     let p = createP(fbDataArray[i].message);
     p.position(random(windowWidth), random(windowHeight)); // gives them random position
     p.class('message');
-    p.style('background-color', `rgb(255, 0, ${i * 10})`);
+    p.style('background-color', `rgb(${200 - i / length * 5}, ${i / length * 25}, ${i / length * 255})`);
     p.style('opacity', i / length);
     p.parent('messagesDiv');
   }
@@ -95,7 +95,7 @@ function displayChat() {
 
   p.position(random(windowWidth), random(windowHeight)); // gives them random position
   p.class('message');
-  p.style('background-color', 'rgb(255, 0, 0)');
+  p.style('background-color', 'rgb(80, 200, 255)');
   p.parent('messagesDiv');
 
 
