@@ -8,6 +8,7 @@ let database; // reference to our firebase database
 let folderName = "chatMessages"; // name of folder you create in db
 let input;
 let sendBtn;
+let chatsLoaded = false;
 
 function setup() {
 
@@ -20,6 +21,7 @@ function setup() {
 
   input = select('#input');
   sendBtn = select('#sendBtn');
+
 
   input.changed(sendMessage);
   sendBtn.mousePressed(sendMessage);
@@ -59,7 +61,7 @@ function draw() {
 
 }
 
-function sendMessage(){
+function sendMessage() {
 
   let timestamp = Date.now();
   let chatObject = {
@@ -70,16 +72,34 @@ function sendMessage(){
   createNode(folderName, timestamp, chatObject)
 }
 
-
-function displayChat(){
+function displayPastChats() {
 
   let length = fbDataArray.length;
 
-  createP(fbDataArray[length-1].message);
+  for (let i = 0; i < length; i++) {
+    let p = createP(fbDataArray[i].message);
+    p.position(random(windowWidth), random(windowHeight)); // gives them random position
+    p.class('message');
+    p.style('background-color', `rgb(255, 0, ${i * 10})`);
+    p.style('opacity', i / length);
+    p.parent('messagesDiv');
+  }
+
+}
+
+function displayChat() {
+
+  let length = fbDataArray.length;
+
+  let p = createP(fbDataArray[length - 1].message); // this just shows last message
+
+  p.position(random(windowWidth), random(windowHeight)); // gives them random position
+  p.class('message');
+  p.style('background-color', 'rgb(255, 0, 0)');
+  p.parent('messagesDiv');
+
 
   input.value('');
 
-  // for (let i = 0; i < length; i++){
-  //   createP(fbDataArray[i].message);
-  // }
+
 }

@@ -15,6 +15,11 @@ function gotData(data) {
     // create an array of the post values (if you need to loop through it retaining order of entries)
     fbDataArray = Object.values(fbData);
 
+    if (!chatsLoaded){
+      displayPastChats();
+      chatsLoaded = true;
+    }
+
     displayChat();
 
   } else {

@@ -5,3 +5,22 @@ html, body {
 canvas {
   display: block;
 }
+
+.message {
+  /* background-color: #fccf03; */
+  padding: 10px;
+}
+
+.submitDiv {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  z-index: 2;
+  background-color: #212121;
+  padding: 20px;
+}
+
+.messagesDiv{
+  position: absolute;
+  z-index: -2;
+}
