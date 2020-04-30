@@ -82,7 +82,6 @@ function displayPastChats() {
     p.class('message');
     p.style('background-color', `rgb(255, 0, ${i * 10})`);
     p.style('opacity', i / length);
-    p.parent('messagesDiv');
   }
 
 }
@@ -96,7 +95,6 @@ function displayChat() {
   p.position(random(windowWidth), random(windowHeight)); // gives them random position
   p.class('message');
   p.style('background-color', 'rgb(255, 0, 0)');
-  p.parent('messagesDiv');
 
 
   input.value('');
