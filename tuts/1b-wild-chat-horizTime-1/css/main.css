@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Major Mono Display', monospace;
+}
+
+body {
+  background-color: #212121;
+}
+
+#mainContentDiv{
+    overflow: scroll;
+
+}
+
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    height: 100%;
+}
+
+canvas {
+  display: block;
+}
+
+.message {
+  /* background-color: #fccf03; */
+  padding: 10px;
+}
+
+.submitDiv {
+  /* position fixed will keep it centered in the screen despite scroll */
+  position: fixed;
+  top: 33%;
+  left: 33%;
+  z-index: 2;
+  background-color: #222222;
+  padding: 20px;
+  border: 3px solid rgb(80, 200, 255);
+}
+
+.messagesDiv{
+  position: absolute;
+  z-index: -2;
+}
