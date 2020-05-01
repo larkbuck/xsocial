@@ -70,6 +70,7 @@ function sendMessage() {
   }
 
   createNode(folderName, timestamp, chatObject)
+  displayChat();
 }
 
 function displayPastChats() {
@@ -80,7 +81,8 @@ function displayPastChats() {
     let p = createP(fbDataArray[i].message);
     p.position(random(windowWidth), random(windowHeight)); // gives them random position
     p.class('message');
-    p.style('background-color', `rgb(${200 - i / length * 5}, ${i / length * 25}, ${i / length * 255})`);
+    p.style('background-color', `hsl(${(i * 5) % 300}, 80%, 50%)`);
+    // p.style('background-color', `rgb(${200 - i / length * 100}, ${i / length * 50}, ${i / length * 255})`);
     p.style('opacity', i / length);
     p.parent('messagesDiv');
   }
