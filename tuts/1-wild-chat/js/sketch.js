@@ -81,9 +81,10 @@ function displayPastChats() {
     let p = createP(fbDataArray[i].message);
     p.position(random(windowWidth), random(windowHeight)); // gives them random position
     p.class('message');
-    p.style('background-color', `hsl(${(i * 5) % 300}, 80%, 50%)`);
+    p.style('background-color', `hsl(${(i * 5) % 300}, 80%, 50%)`); // changed color mode to HSL 
     // p.style('background-color', `rgb(${200 - i / length * 100}, ${i / length * 50}, ${i / length * 255})`);
-    p.style('opacity', i / length);
+    let opacity = map(i / length, 0, 1, 0, .9);
+    p.style('opacity', opacity);
     p.parent('messagesDiv');
   }
 
