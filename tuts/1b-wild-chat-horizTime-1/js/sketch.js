@@ -29,7 +29,7 @@ function setup() {
 
 // for side scroll
   // chatdiv.scrollTop = chatdiv.scrollHeight - chatdiv.clientHeight;
-  mainContentDiv = document.querySelector('#mainContentDiv');
+  // mainContentDiv = document.querySelector('#mainContentDiv');
 
 
   let config = {
@@ -122,7 +122,7 @@ function displayLastChat() {
   p.style('background-color', 'rgb(80, 200, 255)');
   p.parent('messagesDiv');
 
-  mainContentDiv.scrollLeft = 500;
+  // mainContentDiv.scrollLeft = 500;
   // mainContentDiv.scrollLeft = mainContentDiv.scrollWidth - mainContentDiv.clientWidth;
   // mainContentDiv.scrollTop = mainContentDiv.scrollHeight - mainContentDiv.clientHeight;
 

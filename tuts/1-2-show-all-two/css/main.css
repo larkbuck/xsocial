@@ -1,0 +1,23 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+.message {
+  /* background-color: #fccf03; */
+  padding: 10px;
+}
+
+.submitDiv {
+  z-index: 2;
+  background-color: #212121;
+  padding: 20px;
+  display: inline-block;
+}
+
+.messagesDiv {
+  z-index: -2;
+}

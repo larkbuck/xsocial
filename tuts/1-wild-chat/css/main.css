@@ -20,7 +20,7 @@ canvas {
 }
 
 .submitDiv {
-  position: absolute;
+  position: fixed;
   top: 33%;
   left: 33%;
   z-index: 2;

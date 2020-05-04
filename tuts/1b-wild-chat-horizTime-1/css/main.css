@@ -10,17 +10,6 @@ body {
   background-color: #212121;
 }
 
-#mainContentDiv{
-    overflow: scroll;
-
-}
-
-.flex-container {
-    display: -webkit-flex;
-    display: flex;
-    height: 100%;
-}
-
 canvas {
   display: block;
 }
@@ -31,7 +20,6 @@ canvas {
 }
 
 .submitDiv {
-  /* position fixed will keep it centered in the screen despite scroll */
   position: fixed;
   top: 33%;
   left: 33%;
