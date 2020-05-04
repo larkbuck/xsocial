@@ -11,13 +11,6 @@ canvas {
   padding: 10px;
 }
 
-.submitDiv {
-  z-index: 2;
-  background-color: #212121;
-  padding: 20px;
-  display: inline-block;
-}
-
 .messagesDiv {
   z-index: -2;
 }

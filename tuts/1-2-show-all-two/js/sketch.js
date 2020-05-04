@@ -70,7 +70,7 @@ function sendMessage() {
   }
 
   createNode(folderName, timestamp, chatObject);
-
+  input.value('');
 }
 
 function displayPastChats() {
@@ -98,8 +98,6 @@ function displayChat() {
   p.class('message');
   p.style('background-color', 'rgb(255, 0, 0)');
 
-
-  input.value('');
 
 
 }

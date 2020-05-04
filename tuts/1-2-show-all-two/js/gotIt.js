@@ -20,7 +20,7 @@ function gotData(data) {
       chatsLoaded = true;
     }
 
-    displayChat(); 
+    displayChat();
 
   } else {
     console.log('nothing in this folder yet');
