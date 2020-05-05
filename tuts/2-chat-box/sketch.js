@@ -14,9 +14,7 @@ let allDataArray;
 let keys;
 
 function setup() {
-  var canvas = createCanvas(400, 300);
-  canvas.parent('#canvas');
-  background(51);
+  noCanvas();
 
 
   userInput = select("#userInput")
@@ -55,24 +53,18 @@ function setup() {
 
   firebase.initializeApp(firebaseConfig);
 
-database = firebase.database();
+  database = firebase.database();
 
 
-let ref = database.ref('posts');
-ref.on('value', gotData, errData);
+  let ref = database.ref('posts');
+  ref.on('value', gotData, errData);
 
 }
 
 
 
 function askFBseed() {
-  // ask = "initialize femmebot";
-  //
-  // var data = {
-  //     query: ask
-  // };
-  // socket.emit('ask', data);
-  //scroll
+
   chatdiv.scrollTop = chatdiv.scrollHeight - chatdiv.clientHeight;
 }
 
@@ -100,37 +92,24 @@ function post() {
 
 
 function FBreply(data) {
-  // console.log("FBreply called--- data:");
-  // console.log(data);
-  //
-  // setTimeout(delayReply, 750);
-  //
-  // var reply = data.result.fulfillment.speech;
-  // var modReply = reply.replace(/assistant/i, "femmebot");
+
 
   function delayReply() {
     var reply = createP(modReply);
     reply.parent('#output');
     reply.class('femmebot');
 
-    // //store action called
-    // action = data.result.action;
-    // console.log(action);
-    //
-    // //store parameters if ANY
-    // var parameters = data.result.parameters
-
     //scroll chatbox
     chatdiv.scrollTop = chatdiv.scrollHeight - chatdiv.clientHeight;
   }
 }
 
-function createPosts(){
+function createPosts() {
 
   // create post for each entry
   // note this allows for filtering
   allDataArray.forEach(function(postNode) {
-createP(postNode.post).parent('#output').class('femmebot');
+    createP(postNode.post).parent('#output').class('femmebot');
   });
 
   // let posts = createP(modReply);
@@ -141,25 +120,3 @@ createP(postNode.post).parent('#output').class('femmebot');
 function clearDiv(elementID) {
   document.getElementById(elementID).innerHTML = "";
 }
-
-
-//old femmebot
-//callbacks for accessing firebase data
-// function gotData(data) {
-//   console.log("firebase confirmed")
-//     // console.log(data.val());
-//     var posts = data.val();
-//     //create array of object keys so you can iterate thru them
-//     var keys = Object.keys(posts);
-//     //console.log(keys);
-//     //now you can iterate thru objects and access data
-//     for (var i = 0; i < keys.length; i++) {
-//         var k = keys[i];
-//         var asks = posts[k].query;
-//     }
-// }
-//
-// function errData(err) {
-//     console.log('error retrieving data from Firebase:');
-//     console.log(err);
-// }
