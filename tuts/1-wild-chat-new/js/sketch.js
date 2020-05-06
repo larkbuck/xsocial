@@ -8,6 +8,7 @@ let database; // reference to our firebase database
 let folderName = "chatMessages"; // name of folder you create in db
 let input;
 let sendBtn;
+let chatsLoaded = false;
 
 
 function setup() {
@@ -63,48 +64,25 @@ function sendMessage() {
   input.value('');
 }
 
-function displayPastChats() {
 
-  let length = fbDataArray.length;
+function displayPastChats() {
+  let length= fbDataArray.length;
 
   for (let i = 0; i < length; i++) {
     let p = createP(fbDataArray[i].message);
-    // p.position(i * 50, random(windowHeight)); // move them across screen via time
-    // p.position(random(windowWidth), random(windowHeight)); // gives them random position
-    // p.style('background-color', `rgb(255, 0, ${i * 10})`);
-    // p.style('opacity', i / length);
-
-    // p.class('message'); //if you wanted to assign it a class
-    // p.parent('messagesDiv') //parent it to a div
-    // ^^ note you have to define a message class and messages div for that to work
+    p.position(random(windowWidth), random(windowHeight));
+    p.style('background-color', `hsl(${(i * 5) % 300}, 80%, 50%)`); // changed color mode to HSL
+    let opacity = map(i / length, 0, 1, 0, .9);
+    p.style('opacity', opacity);
   }
 
 }
 
 function displayLastChat() {
-
-  let length = fbDataArray.length;
-
-  let p = createP(fbDataArray[length - 1].message); // this just shows last message
-
-  // p.position(length * 50, random(windowHeight)); // move them across screen via time
-  // // p.position(random(windowWidth), random(windowHeight)); // gives them random position
-  // p.style('background-color', 'rgb(80, 200, 255)');
-  // ^^ note you have to define a message class and messages div for that to work
-  // p.class('message');
-  // p.parent('messagesDiv');
-
-
+  let index = fbDataArray.length - 1;
+  let p = createP(fbDataArray[index].message);
+  p.position(random(windowWidth), random(windowHeight));
+  p.style('background-color', `hsl(${(i * 5) % 300}, 80%, 50%)`); // changed color mode to HSL
+  let opacity = map(i / length, 0, 1, 0, .9);
+  p.style('opacity', opacity);
 }
-// function displayChat(){
-//
-//   let length = fbDataArray.length;
-//
-//   createP(fbDataArray[length-1].message);
-//
-//   input.value('');
-//
-//   // for (let i = 0; i < length; i++){
-//   //   createP(fbDataArray[i].message);
-//   // }
-// }
