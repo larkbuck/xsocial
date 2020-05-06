@@ -1,0 +1,30 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+}
+
+canvas {
+  display: block;
+}
+
+#messageDiv {
+  background-color: #edd;
+  overflow: scroll;
+  width: 500px;
+  height: 475px;
+}
+
+#chat {
+  width: 500px;
+  height: 500px;
+  margin: 50px auto;
+  /* custom border image */
+  /* fun tool to make your own: https://maxbittker.github.io/broider/ */
+  border-style: solid;
+  border-width: 15px;
+  -moz-border-image: url(../assets/border.png) 15 repeat;
+  -webkit-border-image: url(../assets/border.png) 15 repeat;
+  -o-border-image: url(../assets/border.png) 15 repeat;
+  border-image: url(../assets/border.png) 15 repeat;
+}
