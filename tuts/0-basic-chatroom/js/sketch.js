@@ -8,6 +8,7 @@ let database; // reference to our firebase database
 let folderName = "chatMessages"; // name of folder you create in db
 let input;
 let sendBtn;
+let chatsLoaded = false;
 
 function setup() {
 
@@ -44,22 +45,13 @@ function setup() {
   // **** folderName must be consistant across all calls to this folder
 
   ref.on('value', gotData, errData);
-
-
-  // ---> To find your config object:
-  // They will provide it during Firebase setup
-  // or (if your project already created)
-  // 1. Go to main console page
-  // 2. Click on project
-  // 3. On project home page click on name of app under project name (in large font)
-  // 4. Click the gear icon --> it's in there!
 }
 
 function draw() {
 
 }
 
-function sendMessage(){
+function sendMessage() {
 
   let timestamp = Date.now();
   let chatObject = {
@@ -67,19 +59,52 @@ function sendMessage(){
     timestamp: timestamp,
   }
 
-  createNode(folderName, timestamp, chatObject)
+  createNode(folderName, timestamp, chatObject);
+  input.value('');
 }
 
-
-function displayChat(){
+function displayPastChats() {
 
   let length = fbDataArray.length;
 
-  createP(fbDataArray[length-1].message);
+  for (let i = 0; i < length; i++) {
+    let p = createP(fbDataArray[i].message);
+    // p.position(i * 50, random(windowHeight)); // move them across screen via time
+    // p.position(random(windowWidth), random(windowHeight)); // gives them random position
+    // p.style('background-color', `rgb(255, 0, ${i * 10})`);
+    // p.style('opacity', i / length);
 
-  input.value('');
+    // p.class('message'); //if you wanted to assign it a class
+    // p.parent('messagesDiv') //parent it to a div
+    // ^^ note you have to define a message class and messages div for that to work
+  }
 
-  // for (let i = 0; i < length; i++){
-  //   createP(fbDataArray[i].message);
-  // }
 }
+
+function displayLastChat() {
+
+  let length = fbDataArray.length;
+
+  let p = createP(fbDataArray[length - 1].message); // this just shows last message
+
+  // p.position(length * 50, random(windowHeight)); // move them across screen via time
+  // // p.position(random(windowWidth), random(windowHeight)); // gives them random position
+  // p.style('background-color', 'rgb(80, 200, 255)');
+  // ^^ note you have to define a message class and messages div for that to work
+  // p.class('message');
+  // p.parent('messagesDiv');
+
+
+}
+// function displayChat(){
+//
+//   let length = fbDataArray.length;
+//
+//   createP(fbDataArray[length-1].message);
+//
+//   input.value('');
+//
+//   // for (let i = 0; i < length; i++){
+//   //   createP(fbDataArray[i].message);
+//   // }
+// }

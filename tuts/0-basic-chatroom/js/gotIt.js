@@ -15,7 +15,12 @@ function gotData(data) {
     // create an array of the post values (if you need to loop through it retaining order of entries)
     fbDataArray = Object.values(fbData);
 
-    displayChat();
+    if (!chatsLoaded) { // checks to make sure it doesn't keep loading all the chats over and over
+      displayPastChats();
+      chatsLoaded = true;
+    } else {
+      displayLastChat();
+    }
 
   } else {
     console.log('nothing in this folder yet');
