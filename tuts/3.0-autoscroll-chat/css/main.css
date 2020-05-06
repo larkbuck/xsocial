@@ -1,6 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
+  font-family: monospace;
 }
 
 canvas {
@@ -17,6 +18,7 @@ canvas {
 #chat {
   width: 500px;
   height: 500px;
+  margin: 50px auto;
   /* custom border image */
   /* fun tool to make your own: https://maxbittker.github.io/broider/ */
   border-style: solid;
