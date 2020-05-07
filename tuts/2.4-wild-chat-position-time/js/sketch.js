@@ -1,5 +1,5 @@
 "use strict";
-// template for firebase
+// Chats placed horizontally across time
 
 let nodeData; // object we will push to firebase
 let fbData; // data we pull from firebase

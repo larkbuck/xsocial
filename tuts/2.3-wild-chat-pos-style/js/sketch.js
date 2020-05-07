@@ -1,5 +1,5 @@
 "use strict";
-// template for firebase
+// Chats placed in random points on screen, newest on top
 
 let nodeData; // object we will push to firebase
 let fbData; // data we pull from firebase

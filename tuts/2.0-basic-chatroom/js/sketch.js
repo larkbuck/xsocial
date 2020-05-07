@@ -1,5 +1,6 @@
 "use strict";
-// template for firebase
+// template for firebase basic chatroom
+// YOU WILL NEED TO PASTE YOUR CONFIG INFO FROM FIREBASE - LINE 31
 
 let nodeData; // object we will push to firebase
 let fbData; // data we pull from firebase
@@ -26,16 +27,24 @@ function setup() {
   input.changed(sendMessage);
   sendBtn.mousePressed(sendMessage);
 
+  // PASTE YOUR FIREBASE CONFIG DATA HERE
   let config = {
-    apiKey: "AIzaSyC-4LvZ39_rdJp8LpCwdD2LT4Xpi7RoVKE",
-    authDomain: "xsocial-bafa7.firebaseapp.com",
-    databaseURL: "https://xsocial-bafa7.firebaseio.com",
-    projectId: "xsocial-bafa7",
-    storageBucket: "xsocial-bafa7.appspot.com",
-    messagingSenderId: "885435903629",
-    appId: "1:885435903629:web:cdaaa02cee4c2fc9acbcc4",
-    measurementId: "G-YX8LWSB5MB"
+    // apiKey: "",
+    // authDomain: "",
+    // databaseURL: "",
+    // projectId: "",
+    // storageBucket: "",
+    // messagingSenderId: "",
+    // appId: "",
   };
+
+  // ---> To find your config object:
+  // They will provide it during Firebase setup
+  // or (if your project already created)
+  // 1. Go to main console page
+  // 2. Click on project
+  // 3. On project home page click on name of app under project name (in large font)
+  // 4. Click the gear icon --> it's in there!
 
   firebase.initializeApp(config);
 

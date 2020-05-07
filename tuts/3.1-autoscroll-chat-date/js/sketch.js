@@ -1,5 +1,6 @@
 "use strict";
-// template for firebase
+// Basic chat div with autoscroll to bottom
+// with date + time of post!
 
 let nodeData; // object we will push to firebase
 let fbData; // data we pull from firebase
