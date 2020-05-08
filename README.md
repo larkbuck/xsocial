@@ -1,78 +1,37 @@
-# Experimental Social Media Projects
+# Experiments in social media
 
 
-#### *For Art 101 @ SJSU*
+#### *For Art 101 @ San José State University*
 
 
 #### LINKS:
-* [tut demos online here](https://larkvcr.com/xsocial/)
-* [youtube tuts here](https://www.youtube.com/playlist?list=PLT6L9mOkCXcO1XM6Aj-qMYljSDgNutQGy)
+* [Website w/ demos](https://larkvcr.com/xsocial/)
+* [YouTube tutorial playlist](https://www.youtube.com/playlist?list=PLT6L9mOkCXcO1XM6Aj-qMYljSDgNutQGy)
+* [Atom keyboard shortcuts](atom-shortcuts)
 
+<br>
 
 #### ON THIS PAGE:
 
-* [Atom Keyboard Shortcuts](#-atom-keyboard-shortcuts)
-* [Basic Firebase Setup](#-basic-firebase-setup)
+
+* [0: Basic Firebase Setup](#-basic-firebase-setup)
   * Vids 0.0-0.3
-* [Message in a Bottle Project](#-message-in-a-bottle-project) (send / receive messages)
-  * Vids 1.0 - 1.?
+* [1: "Old media" - send and receive unique messages](#-send-and-receive-unique-messages)
+  * Vids 1.0 - 1.8
   * [Sending Data](#sending-data-to-firebase)
   * [Receiving Data](#receiving-data)
   * [Shuffling arrays](#shuffling-arrays)
+  * [Seeding the database](#seeding-the-database) (fortune cookie api)
+* [2: Basic + wild chatrooms](#-make-a-basic-chatroom)
+  * Vids 2.0 - 2.4
+  * [Basic: display messages](#basic-chat)
+  * [Wild: experiment with chat position](#wild-chat)
+* [3: Autoscroll chat](#-chatroom-with-autoscroll-div)
+  * Vids 3.0-3.2
+  * [Include time stamp and username](#include-timestamp-and-username)
 
 
-### ⊱ ────── {.⋅ ♫ ⋅.} ───── ⊰
 
-## ▼△▼△▼ Atom Keyboard Shortcuts
-
-[Atom Cheatsheet Here](https://www.shortcutfoo.com/app/dojos/atom-mac/cheatsheet)
-
-* *this list is for apple keyboards. for windows, change cmd (command) to ctrl (control)*
-* *bold ones are highly recommended*
-
-#### Cursor / folding:
-
-* **multi-line cursor: hold down cmd and click in different places**
-
-* **ctrl m - jump to matching curly bracket (marker)**
-
-* **cmd k quickly followed by cmd # - fold the code to various levels**
-  * **Try cmd k cmd 1,  then cmd k cmd 2, etc**
-
-* **cmd alt [ or cmd alt ] = fold / unfold code block**
-  * **add shift to fold/unfold all**
-
-* ctrl g - jump to line # (good when looking up line number errors)
-
-* ctrl a - jump to beginning of line
-
-* ctrl e - jump to end of line
-
-
-#### Highlighting / operations:
-
-* **cmd d - with text highlighted, cmd d will highlight next (same) text selection**
-
-* **cmd shift D to duplicate line**
-
-* **cmd L = highlight entire line**
-
-* **cmd x will delete entire line**
-
-* **option shift arrow (left or right) will highlight next word to left or right**
-
-* cmd shift arrow (left or right) will highlight whole line to left or right
-
-* cmd ctrl arrow (up down) - moves line up/Down
-
-* option arrow (left or right) will jump cursor to next word
-
-
-#### Find and replace:
-
-* **cmd f - find/replace word in file**
-
-* **cmmd shift f - find/replace word in ALL files**
 
 <br>
 
@@ -91,19 +50,18 @@
 
 ### **0.1: Set up Firebase project**
 
-* NOTE: When you set up your realtime database, make note of the URL for the database on the Firebase website. I couldn't navigate back to it through the sidebar menu for 3 hrs
+* NOTE: When you set up your realtime database on the Firebase website, make note of the URL for the database. The Firebase Web Console might lag in linking to your database.
 
 ***Important:***
-* Firebase databases are NOT SECURE when anyone is allowed to read and write to them in the rules. For secure dynamic databases you need backend hosting (not possible on GitHub pages).
-* So basically do not store private information.
-* Also someone might 'accidentally' delete or hijack your database. Make backups! You can make auto backups with a Blaze plan (not free but I only pay 4-6 cents a month for two big projects).
-* ---> Video tut on how we will approach Firebase security COMING SOON
+* Firebase databases are NOT SECURE when anyone is allowed to read and write to them in the rules. For secure dynamic databases you need to host your website with a "virtual machine," aka back end. This is not possible on a GitHub pages website.
+* Do not store private information here.
+* Also someone might 'accidentally' delete or hijack your database. Make backups! Firebase will automatically backup your data with a Blaze plan (not free but I only pay 4-6 cents a month for two big projects). You can set alerts for when your monthly costs exceed a dollar amount.
 
 <br>
 
-### **0.2: Initialize Firebase in p5 Project pt 1**
+### **0.2: Initialize Firebase in p5**
 
-Here is code to copy along with video tutorial. **Students! Please watch video and follow along.** There are a few things I left out so you need the video too =). Also, If you don't know what code is doing you will get lost further down the road.
+Here is code to copy along with video tutorial 0.2. **Students! Please follow along with the videos.** There are a few things I left out so you need the videos too =). Plus if you don't know what code is doing you will get lost further down the road.
 
 [Link to Firebase docs for web app](https://firebase.google.com/docs/database/web/start)
 
@@ -140,10 +98,11 @@ Here is code to copy along with video tutorial. **Students! Please watch video a
 
     database = firebase.database();
 
-    // this references the folder you want your data to appear in
+    // this points to the folder you want your data to appear in
     let ref = database.ref(folderName);
-    // **** folderName must be consistant across all calls to this folder
 
+    // initialize Firebase connection
+    // callback functions are gotData() and errData()
     ref.on('value', gotData, errData);
 
 
@@ -187,7 +146,7 @@ Here is code to copy along with video tutorial. **Students! Please watch video a
 
 <br>
 
-### **0.3: Initialize Firebase in p5 Project pt 2**
+### **0.3: Initialize Firebase in p5**
 
 
 #### Write data to Firebase by creating a new node!!!
@@ -242,14 +201,14 @@ Now all this will be set up for next time. You can just create a new repository 
 
 ### ⊱ ────── {.⋅ ♫ ⋅.} ───── ⊰
 
-# ▼△▼△▼ Message in a Bottle Project
+# ▼△▼△▼ Send and Receive Unique Messages
 
 Send and receive messages, the old way.
 
+I will be building a "fortune cookie-ish" project, you could also choose another form from the [History of Messaging](https://simpletexting.com/history-of-messaging/) (ie. message-in-a-bottle, carrier pigeons, telegraphs, letters, time capsules)
 
-* [Videos 1.0 - 1.?](https://www.youtube.com/playlist?list=PLT6L9mOkCXcO1XM6Aj-qMYljSDgNutQGy)
 
-* I will be building a "Message in A Bottle" project, you could also choose another form from the [History of Messaging](https://simpletexting.com/history-of-messaging/) (ie. smoke signals, carrier pigeons)
+* [Videos 1.0 - 1.8](https://www.youtube.com/playlist?list=PLT6L9mOkCXcO1XM6Aj-qMYljSDgNutQGy)
 
 
 
@@ -320,9 +279,11 @@ The essence of this is:
 
 ## Shuffling Arrays
 
-It's not as easy as you might think....
+We need to shuffle all the data in our database so that you receive a random message, not the next one in the order they were received.
 
-The Fisher-Yates algorithm is efficient and avoids having to create duplicate arrays. But it is a little confusing...
+Turns out shuffling arays is not as easy as you might think....
+
+The Fisher-Yates algorithm is efficient and avoids having to create duplicate arrays. But it is a little confusing.
 * [Easy explanation here](https://medium.com/@qjawe/js-shuffle-cards-or-any-elements-with-the-fisher-yates-shuffle-algorithm-b70750c497d5)
 * [Javascript.info tutorial here](https://javascript.info/task/shuffle) (click solution and scroll down)
 
@@ -346,3 +307,46 @@ The Fisher-Yates algorithm is efficient and avoids having to create duplicate ar
 
       }
     }
+
+
+### ⊱ ────── {.⋅ ♫ ⋅.} ───── ⊰
+
+# ▼△▼△▼ Make a basic chatroom
+
+* Vids 2.0 - 2.4
+
+## Basic chat
+
+Have messages appear instantaneously on screen.
+
+---> save this code as template
+
+## Wild chat
+
+Experiment with chat position. First have messages appear randomly in the window, then experiment with what happens when they overflow.
+
+
+
+
+### ⊱ ────── {.⋅ ♫ ⋅.} ───── ⊰
+
+# ▼△▼△▼ Chatroom with autoscroll div
+
+* Vids 3.0-3.2
+
+## Include timestamp and username
+
+For the timestamp: We already included Date.now() in our object for each chat. These returns the milliseconds from midnight on Jan 1st 1970 (the beginning of computer time). Use the Javascript date object to convert that to readable date:
+
+
+    let dateObject = new Date(fbDataArray[index].timestamp);
+
+    let humanDate = dateObject.toString();
+
+
+
+For the username: Create another input field for the username and store it in the object/node for each message.
+
+allenge: can you create unique passwords?
+
+!!: this is much more complicated... look up how other people have approached this with Firebase.

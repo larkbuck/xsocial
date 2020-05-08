@@ -29,13 +29,14 @@ function setup() {
 
   // PASTE YOUR FIREBASE CONFIG DATA HERE
   let config = {
-    // apiKey: "",
-    // authDomain: "",
-    // databaseURL: "",
-    // projectId: "",
-    // storageBucket: "",
-    // messagingSenderId: "",
-    // appId: "",
+    apiKey: "AIzaSyC-4LvZ39_rdJp8LpCwdD2LT4Xpi7RoVKE",
+    authDomain: "xsocial-bafa7.firebaseapp.com",
+    databaseURL: "https://xsocial-bafa7.firebaseio.com",
+    projectId: "xsocial-bafa7",
+    storageBucket: "xsocial-bafa7.appspot.com",
+    messagingSenderId: "885435903629",
+    appId: "1:885435903629:web:cdaaa02cee4c2fc9acbcc4",
+    measurementId: "G-YX8LWSB5MB"
   };
 
   // ---> To find your config object:

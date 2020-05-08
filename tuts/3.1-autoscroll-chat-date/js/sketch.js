@@ -84,9 +84,8 @@ function displayPastChats() {
   }
 
   messageDiv.scrollTop = messageDiv.scrollHeight - messageDiv.clientHeight;
-
-
 }
+
 
 function displayLastChat() {
   let index = fbDataArray.length - 1;
