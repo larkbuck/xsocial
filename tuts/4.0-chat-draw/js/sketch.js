@@ -7,6 +7,7 @@ let nodeData; // object we will push to firebase
 let fbData; // data we pull from firebase
 let fbDataArray; // firebase data values converted to an array
 let database; // reference to our firebase database
+let loaded = false;
 
 // for chat
 let folderName = "chat"; // name of folder you create in db
@@ -36,11 +37,14 @@ function setup() {
 
   let cnv = createCanvas(720, 480);
   cnv.parent('#canvasDiv');
-  cnv.mouseReleased(updateFBPixels)
+  // mouse event specific to canvas! after something is drawn, it's sent to firebase
+  cnv.mouseReleased(updateFBPixels);
 
+  // create p5 color picker
   colorPicker = createColorPicker('#ed225d');
   colorPicker.parent('#colorPickerDiv');
 
+  // have to create p5 color object from the hex
   pixelColor = color(pixelColorHex);
   bgColor = color(bgColorHex);
   background(bgColor);
@@ -48,41 +52,18 @@ function setup() {
   strokeWeight(0);
   // stroke(color('#f0efeb'));
 
+  // initialize array
   cellWidth = width / cols;
   cellHeight = height / rows;
   pixelArray = make2DArray(cols, rows, cellWidth, cellHeight);
 
-  let saveBtn = select('#saveBtn')
+
+  // save png of canvas when button pressed
+  let saveBtn = select('#saveBtn');
   saveBtn.mousePressed(function() {
     save('!!!.png');
-  })
+  });
 
-  window.addEventListener('keydown', function(e) {
-    // console.log(`keycode is: ${e.keyCode}`)
-    keyCodePressed = e.keyCode;
-
-    switch (keyCodePressed) {
-      // case 80:
-      //   saveJSONfile();
-      //   // printData();
-      //   break;
-      // case 83:
-      //   console.log("saving image");
-      //   save('sprite.png');
-      //   break;
-      default:
-        break;
-    }
-  })
-
-  window.addEventListener('keyup', function(e) {
-    keyCodePressed = false;
-  })
-
-  // Initialize firebase
-  // support for Firebase Realtime Database 4 web here: https://firebase.google.com/docs/database/web/start
-  // Copy and paste your config here (replace object commented out)
-  // ---> directions on finding config below
 
   // div for chatbox
   // using vanilla js (not p5) so we can control scroll position
@@ -96,6 +77,8 @@ function setup() {
   messageInput.changed(sendMessage);
   sendBtn.mousePressed(sendMessage);
 
+
+  // Initialize firebase
   let config = {
     apiKey: "AIzaSyBLxp2m1Crw_u-oQ1URGAka5yiQgJ5PZ0g",
     authDomain: "messageinabottle-691e5.firebaseapp.com",
@@ -110,15 +93,13 @@ function setup() {
 
   database = firebase.database();
 
-  // this references the chat folder
+  // this database reference is for the chat folder
   let ref = database.ref(folderName);
-  // **** folderName must be consistant across all calls to this folder
-
   ref.on('value', gotData, errData);
 
   // this references the pixel array folder
+  // ** this folder name could change to create different "rooms"
   let refPixel = database.ref('drawing');
-
   refPixel.on('value', gotDataPix, errDataPix);
 }
 
@@ -128,8 +109,6 @@ function draw() {
 
   draw2DArray(pixelArray, cellWidth, cellHeight);
   mouseOverHighlight(pixelArray, cellWidth, cellHeight);
-
-
 }
 
 function sendMessage() {
@@ -162,7 +141,6 @@ function displayPastChats() {
 
   messageDiv.scrollTop = messageDiv.scrollHeight - messageDiv.clientHeight;
 
-
 }
 
 function displayLastChat() {
@@ -180,6 +158,7 @@ function updateFBPixels() {
 }
 
 
+// function to change rgb values from p5 color object to hex
 function rgbToHex(r, g, b) {
   let red = toHex(r);
   let green = toHex(g);
@@ -187,9 +166,9 @@ function rgbToHex(r, g, b) {
   return red + green + blue;
 };
 
-
-function toHex(rgb) {
-  var hex = Number(rgb).toString(16);
+// this changes a single number (ie 255) to a two-digit hex
+function toHex(number) {
+  let hex = Number(number).toString(16);
   if (hex.length < 2) {
     hex = "0" + hex;
   }
@@ -197,13 +176,14 @@ function toHex(rgb) {
 };
 
 function saveJSONfile() {
-  // spriteData.sprites[0].array = pixelArray;
-  // spriteData.sprites[0].stroke = strokeWeightValue;
-  console.log("saving JSON");
-  spriteData.cols = cols;
-  spriteData.rows = rows;
-  json = JSON.stringify(spriteData);
+  let object = {
+    pixelArray: pixelArray
+  }
+
+  let json = JSON.stringify(object);
+
   saveJSON(json, 'sprite.json');
+  console.log("saving JSON");
 }
 
 function savePNG() {
@@ -254,7 +234,7 @@ function mousePressed() {
   let r = floor(mouseY / cellHeight);
 
   if (c >= 0 && c < cols && r >= 0 && r < rows && mouseY > 0 && mouseY < height && mouseX > 0 && mouseX < width) {
-    if (keyCodePressed == 16) {
+    if (keyIsDown(SHIFT)) {
       pixelArray[c][r].on = false;
     } else {
       pixelArray[c][r].on = true;
@@ -268,7 +248,7 @@ function mouseDragged() {
   let r = floor(mouseY / cellHeight);
 
   if (c >= 0 && c < cols && r >= 0 && r < rows && mouseY > 0 && mouseY < height && mouseX > 0 && mouseX < width) {
-    if (keyCodePressed == 16) {
+    if (keyIsDown(SHIFT)) {
       pixelArray[c][r].on = false;
 
     } else {

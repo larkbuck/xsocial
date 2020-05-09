@@ -4,6 +4,10 @@
 // fires upon receiving FB data
 function gotData(data) {
 
+  if (!loaded) {
+    loaded = true;
+    document.querySelector('#loading').style.display = "none";
+  }
   // need to retrieve firebase data with val() method
   // this returns an object of all data
   fbData = data.val();
@@ -17,7 +21,7 @@ function gotData(data) {
 
     // if it's the first time the page is loaded, display all chats from the past
     // else just add the last chat (most recently updated)
-    if (chatsLoaded === false){
+    if (chatsLoaded === false) {
       displayPastChats();
       chatsLoaded = true;
     } else {
@@ -40,7 +44,7 @@ function gotDataPix(data) {
   // need to retrieve firebase data with val() method
   // this returns an object of all data
 
-let pixData = data.val();
+  let pixData = data.val();
 
   if (pixData) { // check to see if there is something in your database to start
     pixelArray = data.val().pixelArray;
