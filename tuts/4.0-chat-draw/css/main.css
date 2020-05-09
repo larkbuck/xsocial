@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Bubblegum+Sans&display=swap');
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+}
+
+body{
+  background-color: #f3f5f0;
+}
+
+canvas {
+  display: block;
+  margin: auto;
+}
+
+#the-top{
+font-family: 'Bubblegum Sans', monospace;
+}
+
+#main-content{
+  width: 1200px;
+
+}
+
+#the-top{
+
+}
+
+#the-zone{
+  background-color: #fff;
+    border: 2px solid #d0ff73;
+}
+
+#canvasDiv{
+  width: 720px;
+}
+
+#colorPickerDiv{
+  text-align: right;
+}
+
+#chat {
+  height: 480px;
+  width: 360px;
+  background-color: #dff2e4;
+  /* min-width: 500px; */
+  /* margin: 50px auto; */
+  /* custom border image */
+  /* fun tool to make your own: https://maxbittker.github.io/broider/ */
+  /* border-style: solid;
+  border-width: 15px;
+  -moz-border-image: url(../assets/border.png) 15 repeat;
+  -webkit-border-image: url(../assets/border.png) 15 repeat;
+  -o-border-image: url(../assets/border.png) 15 repeat;
+  border-image: url(../assets/border.png) 15 repeat; */
+}
+
+#messageDiv {
+  background-color: #edd;
+  overflow: scroll;
+  height: 420px;
+}
