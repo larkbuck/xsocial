@@ -61,7 +61,7 @@ function setup() {
   // save png of canvas when button pressed
   let saveBtn = select('#saveBtn');
   saveBtn.mousePressed(function() {
-    save('!!!.png');
+    save('!!!.png');    
   });
 
 
