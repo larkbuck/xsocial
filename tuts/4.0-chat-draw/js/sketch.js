@@ -1,6 +1,5 @@
 "use strict";
-// Basic chat div with autoscroll to bottom
-// with username included!
+// Chat with drawing grid
 
 // for firebase
 let nodeData; // object we will push to firebase
@@ -61,7 +60,7 @@ function setup() {
   // save png of canvas when button pressed
   let saveBtn = select('#saveBtn');
   saveBtn.mousePressed(function() {
-    save('!!!.png');    
+    save('!!!.png');
   });
 
 
