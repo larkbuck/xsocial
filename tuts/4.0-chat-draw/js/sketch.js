@@ -34,10 +34,17 @@ let keyCodePressed;
 
 function setup() {
 
+  frameRate(8);
+
   let cnv = createCanvas(720, 480);
   cnv.parent('#canvasDiv');
   // mouse event specific to canvas! after something is drawn, it's sent to firebase
-  cnv.mouseReleased(updateFBPixels);
+
+  // not sure which mouse event is the most efficient
+  cnv.mouseClicked(updateFBPixels);
+  // cnv.mouxseDragged(updateFBPixels);
+  // cnv.mousePressed(updateFBPixels);
+  // cnv.mouseReleased(updateFBPixels);
 
   // create p5 color picker
   colorPicker = createColorPicker('#ed225d');
