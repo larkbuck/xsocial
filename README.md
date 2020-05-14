@@ -1,12 +1,12 @@
-# Experiments in social media
+# Experiments in Social Media
 
 
-#### *For Art 101 @ San José State University*
+#### *For Art 101 @ San José State University, Spring 2020*
 
 
 #### LINKS:
 * [Website w/ demos](https://larkvcr.com/xsocial/)
-* [YouTube tutorial playlist](https://www.youtube.com/playlist?list=PLT6L9mOkCXcO1XM6Aj-qMYljSDgNutQGy)
+* [YouTube tutorial playlist](https://www.youtube.com/playlist?list=PLT6L9mOkCXcO1XM6Aj-qMYljSDgNutQGy) - unlisted pls do not repost =)
 * [Atom keyboard shortcuts](atom-shortcuts)
 
 <br>
@@ -308,22 +308,29 @@ The Fisher-Yates algorithm is efficient and avoids having to create duplicate ar
       }
     }
 
+<br>
 
 ### ⊱ ────── {.⋅ ♫ ⋅.} ───── ⊰
 
 # ▼△▼△▼ Make a basic chatroom
 
-* Vids 2.0 - 2.4
+
 
 ## Basic chat
+
+* Vids 2.0 - 2.1
 
 Have messages appear instantaneously on screen.
 
 ---> save this code as template
 
+<br>
+
 ## Wild chat
 
-Experiment with chat position. First have messages appear randomly in the window, then experiment with what happens when they overflow.
+* Vids 2.2 - 2.4
+
+Experiment with chat position. First have messages appear randomly in the window, then experiment with what happens when they are placed beyond the windowWidth or windowHeight.
 
 
 
@@ -347,6 +354,5 @@ For the timestamp: We already included Date.now() in our object for each chat. T
 
 For the username: Create another input field for the username and store it in the object/node for each message.
 
-allenge: can you create unique passwords?
-
-!!: this is much more complicated... look up how other people have approached this with Firebase.
+**Challenge:** can you create unique passwords?
+-- > this is much more complicated... look up how other people have approached this with Firebase.
