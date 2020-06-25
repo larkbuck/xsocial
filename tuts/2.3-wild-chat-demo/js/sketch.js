@@ -80,7 +80,7 @@ function displayPastChats() {
 
   for (let i = 0; i < length; i++) {
     let p = createP(fbDataArray[i].message);
-    p.position(random(windowWidth), random(windowHeight)); // gives them random position
+    p.position(random(windowWidth - 100), random(windowHeight - 50)); // gives them random position
     p.class('message');
     p.style('background-color', `hsl(${(i * 5) % 300}, 80%, 50%)`); // changed color mode to HSL
     // p.style('background-color', `rgb(${200 - i / length * 100}, ${i / length * 50}, ${i / length * 255})`);
@@ -97,7 +97,7 @@ function displayChat() {
 
   let p = createP(fbDataArray[length - 1].message); // this just shows last message
 
-  p.position(random(windowWidth), random(windowHeight)); // gives them random position
+  p.position(random(windowWidth - 100), random(windowHeight - 50)); // gives them random position
   p.class('message');
   p.style('background-color', 'rgb(80, 200, 255)');
   p.parent('messagesDiv');
